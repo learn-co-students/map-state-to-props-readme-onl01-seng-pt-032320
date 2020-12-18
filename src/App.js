@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'; /* STEP1A: connect apps state to props */
 import './App.css';
 
 class App extends Component {
@@ -21,4 +22,10 @@ class App extends Component {
   }
 };
 
-export default App;
+// STEP 1B: CREATE FUNCTION TO LISTEN TO EVERY CHANGE IN STORE
+const mapStateToProps = (state) => {
+  return { items: state.items }
+}
+
+// STEP 1C: connect
+export default connect(mapStateToProps)(App);
